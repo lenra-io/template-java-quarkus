@@ -8,7 +8,7 @@ import io.lenra.app.request.ViewRequest;
 
 public abstract class LenraApplication {
     private final Manifest manifest;
-    private final Map<String, Function<ViewRequest, Object>> views;
+    private final Map<String, Function<?, Object>> views;
 
     public LenraApplication() {
         this.manifest = manifest();
@@ -19,10 +19,10 @@ public abstract class LenraApplication {
         return manifest;
     }
 
-    public Map<String, Function<ViewRequest, Object>> getViews() {
+    public Map<String, Function<?, Object>> getViews() {
         return views;
     }
 
     abstract Manifest manifest();
-    abstract Map<String, Function<ViewRequest, Object>> views();
+    abstract Map<String, Function<?, Object>> views();
 }

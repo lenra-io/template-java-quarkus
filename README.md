@@ -1,3 +1,9 @@
+TODO: add https://github.com/quarkiverse/quarkus-openapi-generator to handle API client generation
+
+TODO: create a Quarkus extension to make the components loader:
+- https://quarkus.io/guides/writing-extensions
+- https://quarkus.io/guides/building-my-first-extension
+
 # rest-json-quickstart
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
