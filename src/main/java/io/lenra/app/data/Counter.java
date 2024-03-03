@@ -1,23 +1,16 @@
 package io.lenra.app.data;
 
-public class Counter extends Data {
-    private int count;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class Counter extends io.lenra.app.data.Data {
     private String user;
+    private int count;
 
-    public Counter() {
-    }
-
-    public Counter(int count, String user) {
-        super();
-        this.count = count;
+    public Counter(String user, int count) {
         this.user = user;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public String getUser() {
-        return user;
+        this.count = count;
     }
 }

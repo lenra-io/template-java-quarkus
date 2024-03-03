@@ -1,12 +1,14 @@
 plugins {
     id 'java'
     id 'io.quarkus'
-    id "org.jsonschema2pojo" version "1.2.1"
 }
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    maven {
+        url = uri('https://jitpack.io')
+    }
+    mavenCentral()
 }
 
 dependencies {
@@ -15,6 +17,14 @@ dependencies {
     implementation 'io.quarkus:quarkus-config-yaml'
     implementation 'io.quarkus:quarkus-arc'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'io.lenra:app:1.0.0-SNAPSHOT'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.30'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    
     testImplementation 'io.quarkus:quarkus-junit5'
 }
 
@@ -24,11 +34,6 @@ version '1.0.0-SNAPSHOT'
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
-}
-
-jsonSchema2Pojo {
-    source = files("lenra.schema.json")
-    targetPackage = 'io.lenra.component'
 }
 
 test {

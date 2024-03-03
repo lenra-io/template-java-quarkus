@@ -1,6 +1,6 @@
 package io.lenra.app;
 
-import io.lenra.app.request.AppRequest;
+import io.lenra.api.AppRequest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -11,7 +11,8 @@ public class RequestHandler {
     private LenraApplication app;
 
     @POST
-    public Object post(AppRequest<?> request) {
-        return request.handle(app);
+    public Object post(AppRequest request) {
+        System.out.println(request);
+        return app.handle(request);
     }
 }
