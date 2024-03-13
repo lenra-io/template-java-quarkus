@@ -17,13 +17,17 @@ dependencies {
     implementation 'io.quarkus:quarkus-config-yaml'
     implementation 'io.quarkus:quarkus-arc'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
-    implementation 'io.lenra:app:1.0.0-SNAPSHOT'
+    
+    def lenra = 'io.lenra:app:1.0.0-SNAPSHOT'
+    // def lenra = 'com.github.lenra-io:app-lib-java:main-SNAPSHOT'
+    implementation lenra
+	annotationProcessor lenra
 
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-	annotationProcessor 'org.projectlombok:lombok:1.18.30'
-	
-	testCompileOnly 'org.projectlombok:lombok:1.18.30'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    def lombok = 'org.projectlombok:lombok:1.18.30'
+    compileOnly lombok
+	annotationProcessor lombok
+	testCompileOnly lombok
+	testAnnotationProcessor lombok
     
     testImplementation 'io.quarkus:quarkus-junit5'
 }
